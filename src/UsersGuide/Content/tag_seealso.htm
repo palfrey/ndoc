@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>seealso</title>
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<link href="css/ndoc.css" rel="stylesheet" name="ndocstyle" type="text/css">
+		<script src="script/ndoc_tags.js"></script>
+	</head>
+	<body class="dtBODY" id="bodyID" onload="InitTitle()">
+		<div id="nstext">
+			<p>The &lt;seealso&gt; tag is used to specify links appearing in a <b>See Also</b> section.</p>
+			<pre class="syntax">&lt;seealso cref="<I>member</I>"&gt;[<EM>label</EM>]&lt;/seealso&gt;
+<b>OR</b>
+&lt;seealso href="<I>URL</I>"&gt;[<EM>label</EM>]&lt;/seealso&gt;</pre>
+			<p>where:</p>
+			<dl>
+				<dt><I>label</I>
+					<dd>
+						text to display as the link <dt>cref = "<I>member</I>"
+							<dd>
+								A reference to a member or field that is available to be called from the 
+								current compilation environment. The compiler checks that the given code 
+								element exists and passes <I>member</I> to the element name in the output XML.<I> member</I>
+								must appear within double quotation marks (" "). <dt>href = "<I>URL</I>" <FONT color="#ff9933">
+										[NDoc extension]</FONT>
+									<dd>
+										A reference to a member or field that is available to be called from the 
+										current compilation environment. The compiler checks that the given code 
+										element exists and passes <I>member</I> to the element name in the output XML.<I> member</I>
+										must appear within double quotation marks (" ").</dd>
+			</dl>
+			<h4 class="dtH4">Applies To</h4>
+			<p>All Types and Members.</p>
+			<h4 class="dtH4">Remarks</h4>
+			<p>
+				Use <a href="tag_see.htm">&lt;see&gt;</a> to specify a link from within text.</p>
+			<p>Do <B>not</B> include this tag in the <a href="#remarks">&lt;remarks&gt;</a> section.</p>
+			<h4 class="dtH4">Example</h4>
+			<p>See <a href="tag_summary.htm">&lt;summary&gt;</a> for an example of using 
+				&lt;seealso&gt;.</p>
+			<h4 class="dtH4">See Also</h4>
+			<p><a href="tagsusage.htm">Tag&nbsp;Usage</a>&nbsp;| <a HREF="tags.htm">NDoc&nbsp;Tags</a>&nbsp;|
+				<a href="tag_see.htm">&lt;see&gt;</a>&nbsp;| <A href="ms-help://MS.NETFrameworkSDKv1.1/csref/html/vclrfseealso.htm">
+					Microsoft's definition</A></p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,359 @@
+<?xml version="1.0" ?>
+<project name="NDoc-helpers" xmlnds="http://tempuri.org/nant-vs.xsd">
+	<target name="check-build-dir">
+		<if test="${not property::exists('build.dir')}">
+			<fail message="The build directory has not been specified." />
+		</if>
+		<mkdir dir="${build.dir}" />
+	</target>
+	<!--
+
+	-->
+	<target name="check-build-debug">
+		<if test="${not property::exists('build.debug')}">
+			<fail message="The build debug setting has not been specified." />
+		</if>
+	</target>
+	<!--
+
+	-->
+	<target name="check-build-defines">
+		<if test="${not property::exists('build.defines')}">
+			<fail message="The build defines have not been specified." />
+		</if>
+	</target>
+	<!--
+
+	-->
+	<target name="check-build-optimize">
+		<if test="${not property::exists('build.optimize')}">
+			<fail message="The build optimize setting has not been specified." />
+		</if>
+	</target>
+	<!--
+
+	-->
+	<target name="check-doc-dir">
+		<if test="${not property::exists('doc.dir')}">
+			<property name="doc.dir" value="doc" readonly="false" />
+		</if>
+		<mkdir dir="${doc.dir}" />
+	</target>
+	<!--
+
+	-->
+	<target name="check-sdkdoc-dir" depends="check-doc-dir">
+		<if test="${not property::exists('sdkdoc.dir')}">
+			<property name="sdkdoc.dir" value="${doc.dir}/sdk" readonly="false" />
+		</if>
+		<mkdir dir="${sdkdoc.dir}" />
+	</target>
+	<!--
+
+	-->
+	<target name="check-sdkdoc-debug">
+		<if test="${not property::exists('sdkdoc.debug')}">
+			<fail message="The sdk documentation debug setting has not been specified." />
+		</if>
+	</target>
+	<!--
+	
+	-->
+	<target name="check-current-bin-dir">
+		<if test="${not property::exists('current.bin.dir')}">
+			<fail message="The current binaries directory has not been specified." />
+		</if>
+		<mkdir dir="${current.bin.dir}" />
+	</target>
+	<!--
+	
+	-->
+	<target name="check-current-build-debug">
+		<if test="${not property::exists('current.build.debug')}">
+			<fail message="The current build debug setting has not been specified." />
+		</if>
+	</target>
+	<!--
+	
+	-->
+	<target name="check-current-build-defines">
+		<if test="${not property::exists('current.build.defines')}">
+			<fail message="The current build defines for have not been specified." />
+		</if>
+	</target>
+	<!--
+	
+	-->
+	<target name="check-current-build-optimize">
+		<if test="${not property::exists('current.build.optimize')}">
+			<fail message="The current build optimize setting has not been specified." />
+		</if>
+	</target>
+	<!--
+	
+	-->
+	<target name="check-current-sdkdoc-dir">
+		<if test="${not property::exists('current.sdkdoc.dir')}">
+			<fail message="The current sdk document directory has not been specified." />
+		</if>
+		<mkdir dir="${sdkdoc.dir}" />
+	</target>
+	<!--
+	
+	-->
+	<target name="check-current-sdkdoc-debug">
+		<if test="${not property::exists('current.sdkdoc.debug')}">
+			<fail message="The curernt sdk documentation debug setting has not been specified." />
+		</if>
+	</target>
+	<!--
+	
+	-->
+	<target name="check-current-build-config">
+		<if test="${not property::exists('current.build.config')}">
+			<if test="${not property::exists('project.build.config')}">
+				<fail message="The build configuration has not been specified and no default build configuration is available." />
+			</if>
+			<if test="${property::exists('project.build.config')}">
+				<property name="current.build.config" value="${project.build.config}" readonly="false" />
+			</if>
+		</if>
+	</target>
+	<!--
+	
+	-->
+	<!-- Targets for setting up the environment -->
+	<target name="set-build-configuration" depends="check-current-build-config">
+		<if test="${not target::exists('set-'+current.build.config+'-build-configuration')}">
+			<fail message="The ${current.build.config} build configuration is not supported by NDoc." />
+		</if>
+		<call target="set-${current.build.config}-build-configuration" />
+	</target>
+	<!--
+	
+	-->
+	<target name="set-debug-build-configuration">
+		<property name="build.debug" value="true" readonly="false" />
+		<property name="build.defines" value="DEBUG,TRACE" readonly="false" />
+		<property name="build.optimize" value="false" readonly="false" />
+		<property name="sdkdoc.debug" value="false" readonly="false" />
+		<property name="current.build.config" value="debug" readonly="false" />
+		<call target="set-build-configuration-flags" />
+	</target>
+	<!--
+	
+	-->
+	<target name="set-release-build-configuration">
+		<property name="build.debug" value="false" readonly="false" />
+		<property name="build.defines" value="TRACE,OFFICIAL_RELEASE" readonly="false" />
+		<property name="build.optimize" value="true" readonly="false" />
+		<property name="sdkdoc.debug" value="false" readonly="false" />
+		<property name="current.build.config" value="release" readonly="false" />
+		<call target="set-build-configuration-flags" />
+	</target>
+	<!--
+	
+	-->
+	<target name="set-build-configuration-flags" depends="check-current-build-config">
+		<property name="current.build.config.debug" value="false" readonly="false" />
+		<property name="current.build.config.release" value="false" readonly="false" />
+		<property name="current.build.config.${current.build.config}" value="true" readonly="false" />
+	</target>
+	<!-- 
+	
+	-->
+		<target name="set-framework-configuration">
+			<if test="${not(target::exists('set-'+framework::get-target-framework()+'-framework-configuration'))}">
+				<fail message="The '${framework::get-target-framework()}' framework is not supported by this version of NDoc." />
+			</if>
+			<call target="set-${framework::get-target-framework()}-framework-configuration" />
+		</target>
+	<!--
+
+	-->
+	<target name="set-net-1.0-framework-configuration" depends="check-build-dir, check-current-build-config, check-build-debug, check-build-defines, check-build-optimize">
+		<property name="nant.settings.currentframework" value="net-1.0" />
+		<property name="current.build.debug" value="${build.debug}" dynamic="true" readonly="false" />
+		<property name="current.build.defines" value="${build.defines},NET,NET_1_0" dynamic="true" readonly="false" />
+		<property name="current.build.optimize" value="${build.optimize}" dynamic="true" readonly="false" />
+		<property name="current.bin.dir" value="${build.dir}/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.dir" value="${nant.project.basedir}/doc/sdk/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.debug" value="${sdkdoc.debug}" dynamic="true" readonly="false" />
+	</target>
+	<!--
+
+	-->
+	<target name="set-net-1.1-framework-configuration" depends="check-build-dir, check-current-build-config, check-build-debug, check-build-defines, check-build-optimize">
+		<property name="nant.settings.currentframework" value="net-1.1" />
+		<property name="current.build.debug" value="${build.debug}" dynamic="true" readonly="false" />
+		<property name="current.build.defines" value="${build.defines},NET,NET_1_1" dynamic="true" readonly="false" />
+		<property name="current.build.optimize" value="${build.optimize}" dynamic="true" readonly="false" />
+		<property name="current.bin.dir" value="${build.dir}/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.dir" value="${nant.project.basedir}/doc/sdk/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.debug" value="${sdkdoc.debug}" dynamic="true" readonly="false" />
+	</target>
+	<!--
+
+	-->
+	<target name="set-net-2.0-framework-configuration" depends="check-build-dir, check-current-build-config, check-build-debug, check-build-defines, check-build-optimize">
+		<property name="nant.settings.currentframework" value="net-2.0" />
+		<property name="current.build.debug" value="${build.debug}" dynamic="true" readonly="false" />
+		<property name="current.build.defines" value="${build.defines},NET,NET_2_0" dynamic="true" readonly="false" />
+		<property name="current.build.optimize" value="${build.optimize}" dynamic="true" readonly="false" />
+		<property name="current.bin.dir" value="${build.dir}/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.dir" value="${nant.project.basedir}/doc/sdk/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.debug" value="${sdkdoc.debug}" dynamic="true" readonly="false" />
+	</target>
+	<!--
+
+	-->
+	<target name="set-netcf-1.0-framework-configuration" depends="check-build-dir, check-current-build-config, check-build-debug, check-build-defines, check-build-optimize">
+		<property name="nant.settings.currentframework" value="netcf-1.0" />
+		<property name="current.build.debug" value="${build.debug}" dynamic="true" readonly="false" />
+		<property name="current.build.defines" value="${build.defines},NETCF,NETCF_1_0" dynamic="true" readonly="false" />
+		<property name="current.build.optimize" value="${build.optimize}" dynamic="true" readonly="false" />
+		<property name="current.bin.dir" value="${build.dir}/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.dir" value="${nant.project.basedir}/doc/sdk/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.debug" value="${sdkdoc.debug}" dynamic="true" readonly="false" />
+	</target>
+	<!--
+
+	-->
+	<target name="set-mono-1.0-framework-configuration" depends="check-build-dir, check-current-build-config, check-build-debug, check-build-defines, check-build-optimize">
+		<property name="nant.settings.currentframework" value="mono-1.0" />
+		<property name="current.build.debug" value="${build.debug}" dynamic="true" readonly="false" />
+		<property name="current.build.defines" value="${build.defines},MONO,MONO_1_0" dynamic="true" readonly="false" />
+		<property name="current.build.optimize" value="${build.optimize}" dynamic="true" readonly="false" />
+		<property name="current.bin.dir" value="${build.dir}/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.dir" value="${nant.project.basedir}/doc/sdk/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.debug" value="${sdkdoc.debug}" dynamic="true" readonly="false" />
+	</target>
+	<!--
+
+	-->
+	<target name="set-sscli-1.0-framework-configuration" depends="check-build-dir, check-current-build-config, check-build-debug, check-build-defines, check-build-optimize">
+		<property name="nant.settings.currentframework" value="sscli-1.0" />
+		<property name="current.build.debug" value="${build.debug}" dynamic="true" readonly="false" />
+		<property name="current.build.defines" value="${build.defines},SSCLI,SSCLI_1_0" dynamic="true" readonly="false" />
+		<property name="current.build.optimize" value="${build.optimize}" dynamic="true" readonly="false" />
+		<property name="current.bin.dir" value="${build.dir}/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.dir" value="${nant.project.basedir}/doc/sdk/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.debug" value="${sdkdoc.debug}" dynamic="true" readonly="false" />
+	</target>
+	<!--
+
+	-->
+	<target name="display-current-runtime">
+		<echo message="" />
+		<echo message="----------------------------------------------------------" />
+		<echo message=" ${framework::get-description(framework::get-target-framework())}" />
+		<echo message="----------------------------------------------------------" />
+		<echo message="" />
+		<echo message="framework : ${framework::get-target-framework()}" />
+		<echo message="description : ${framework::get-description(framework::get-target-framework())}" />
+		<echo message="sdk directory : ${framework::get-sdk-directory(framework::get-target-framework())}" />
+		<echo message="framework directory : ${framework::get-framework-directory(framework::get-target-framework())}" />
+		<echo message="assembly directory : ${framework::get-assembly-directory(framework::get-target-framework())}" />
+		<echo message="runtime engine : ${framework::get-runtime-engine(framework::get-target-framework())}" />
+		<echo message="" />
+	</target>
+	<!--
+
+	-->
+	<target name="display-setup" depends="check-htmlhelp-compiler">
+		<!-- .NET Framework 1.0 -->
+		<if test="${not framework::exists('net-1.0')}">
+			<echo message=".NET Framework 1.0 runtime is not available." />
+		</if>
+		<if test="${framework::exists('net-1.0')}">
+			<property name="nant.settings.currentframework" value="net-1.0" />
+			<call target="display-current-runtime" />
+		</if>
+		<!-- .NET Framework 1.1 -->
+		<if test="${not framework::exists('net-1.1')}">
+			<echo message=".NET Framework 1.1 runtime is not available." />
+		</if>
+		<if test="${framework::exists('net-1.1')}">
+			<property name="nant.settings.currentframework" value="net-1.1" />
+			<call target="display-current-runtime" />
+		</if>
+		<!-- .NET Framework 2.0 -->
+		<if test="${not framework::exists('net-2.0')}">
+			<echo message=".NET Framework 2.0 runtime is not available." />
+		</if>
+		<if test="${framework::exists('net-2.0')}">
+			<property name="nant.settings.currentframework" value="net-2.0" />
+			<call target="display-current-runtime" />
+		</if>
+		<!-- Mono 1.0 -->
+		<if test="${not framework::exists('mono-1.0')}">
+			<echo message="Mono 1.0 runtime is not available." />
+		</if>
+		<if test="${framework::exists('mono-1.0')}">
+			<property name="nant.settings.currentframework" value="mono-1.0" />
+			<call target="display-current-runtime" />
+		</if>
+		<!-- SSCLI 1.0 -->
+		<if test="${not framework::exists('sscli-1.0')}">
+			<echo message="SSCLI 1.0 runtime is not available." />
+		</if>
+		<if test="${framework::exists('sscli-1.0')}">
+			<property name="nant.settings.currentframework" value="sscli-1.0" />
+			<call target="display-current-runtime" />
+		</if>
+		<!-- HTML Help Compiler -->
+		<echo message="" />
+		<echo message="----------------------------------------------------------" />
+		<echo message="" />
+		<echo message="htmlhelp.compiler: ${htmlhelp.compiler}" />
+		<echo message="" />
+	</target>
+	<!-- Targets that check settings -->
+	<target name="check-project-version">
+		<if test="${not property::exists('project.version')}">
+			<fail message="A project version has not been specified." />
+		</if>
+	</target>
+	<!--
+
+	-->
+	<target name="check-current-package-zipfile">
+		<if test="${not property::exists('current.package.zipfile')}">
+			<fail message="The current package zipfile has not been specified." />
+		</if>
+	</target>
+	<!--
+
+	-->
+	<target name="check-htmlhelp-compiler">
+		<if test="${not property::exists('htmlhelp.compiler')}">
+			<readregistry property="htmlhelp.workshop.installroot" key="SOFTWARE\Microsoft\HTML Help Workshop\InstallDir"
+				hive="CurrentUser" failonerror="false" />
+			<if test="${property::exists('htmlhelp.workshop.installroot')}">
+				<property name="htmlhelp.compiler" value="${htmlhelp.workshop.installroot}/hhc.exe" readonly="false" />
+			</if>
+		</if>
+		<if test="${not property::exists('htmlhelp.compiler')}">
+			<sysinfo />
+			<property name="htmlhelp.compiler" value="${sys.os.folder.programfiles}/HTML Help Worshop/hhc.exe"
+				readonly="false" />
+		</if>
+	</target>
+	<!-- 
+	clean-up targets
+	-->
+	<target name="clean-current-bin-dir" description="Checks the current bin directory and cleans it up.">
+		<call target="check-current-bin-dir" />
+		<delete>
+			<fileset basedir="${current.bin.dir}">
+				<include name="**/*" />
+			</fileset>
+		</delete>
+	</target>
+	<!--
+	
+	-->
+	<target name="clean-build-dir" depends="check-build-dir" description="Deletes current build configuration.">
+		<delete dir="${build.dir}" />
+	</target>
+</project>

@@ -1,0 +1,581 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{5B088ED3-EEED-4DD4-AE4C-A7E9323B634C}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "NDoc.Documenter.NativeHtmlHelp2"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                PreBuildEvent = ""
+                PostBuildEvent = 'copy "$(TargetName).*" "$(SolutionDir)src\Gui\bin\$(ConfigurationName)\"&#xd;&#xa;copy "Interop.*.dll" "$(SolutionDir)src\Gui\bin\$(ConfigurationName)\"&#xd;&#xa;copy "$(TargetName).*" "$(SolutionDir)src\Console\bin\$(ConfigurationName)\"&#xd;&#xa;copy "Interop.*.dll" "$(SolutionDir)src\Console\bin\$(ConfigurationName)\"&#xd;&#xa;'
+                RootNamespace = "NDoc.Documenter.NativeHtmlHelp2"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "541786112"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE;NO_RESOURCES"
+                    DocumentationFile = "NDoc.Documenter.NativeHtmlHelp2.xml"
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "true"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "541786112"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = "NDoc.Documenter.NativeHtmlHelp2.xml"
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                />
+                <Reference
+                    Name = "MSHelpCompiler"
+                    Guid = "{314111EE-A502-11D2-BBCA-00C04F8EC294}"
+                    VersionMajor = "1"
+                    VersionMinor = "0"
+                    Lcid = "0"
+                    WrapperTool = "tlbimp"
+                />
+                <Reference
+                    Name = "Core"
+                    Project = "{DBA75D67-23C9-4A78-ABC2-CF8802FDB7CA}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "System.Design"
+                    AssemblyName = "System.Design"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Design.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "NativeHtmlHelp2.build"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "NativeHtmlHelp2Config.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "NativeHtmlHelp2Documenter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "NativeHtmlHelp2Workspace.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "TOCBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Compiler\HxCompiler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Compiler\HxObject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Compiler\HxReg.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\ExternalHtmlProvider.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\FileEventArgs.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\FileNameMapper.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\HtmlFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\MethodHelper.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\MsdnXsltUtilities.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\StyleSheetCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\NamespaceMapping\ManagedName.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Engine\NamespaceMapping\NamespaceMap.xml"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Engine\NamespaceMapping\NamespaceMap.xsd"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Engine\NamespaceMapping\NamespaceMap.xsx"
+                    DependentUpon = "NamespaceMap.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Engine\NamespaceMapping\NamespaceMapper.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "graphics\AnimButton1.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\AnimButton2.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\coC.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\coe.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\dtue.css"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\dtue.xml"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\dtue_ie3.js"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\dtue_ie4.js"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\dtue_ie5.js"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\dtue_notopic.js"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\dtuelink.js"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\Filter1a.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\filter1b.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\filter1c.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\intevent.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\intfield.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\intmethod.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\intoperator.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\intproperty.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\msdn_ie3.css"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\msdn_ie4.css"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\privevent.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\privfield.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\privmethod.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\privoperator.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\privproperty.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\protevent.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\protfield.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\protmethod.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\protoperator.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\protproperty.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\pubevent.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\pubfield.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\pubmethod.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\puboperator.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\pubproperty.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\Requirements1a.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\requirements1b.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\requirements1c.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\seealso1a.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\seealso1b.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\seealso1c.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "graphics\static.gif"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\CollectionFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\CollectionTOCFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\CommonAssemblyInfo.cs"
+                    Link = "..\..\CommonAssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\H2RegFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\HxFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\IncludeFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\IndexFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\NamedUrlFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\ProjectFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\TOCFile.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HxProject\HelpCollection\Collection.HxC"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpCollection\Collection.HxT"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpCollection\Collection_A.HxK"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpCollection\Collection_F.HxK"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpCollection\Collection_K.HxK"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpCollection\H2Reg_cmd.ini"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpTitle\includes.hxf"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpTitle\NamedURL.HxK"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpTitle\project.hxc"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HxProject\HelpTitle\project.HxT"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "includes\ALinks.HxK"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "includes\FLinks.HxK"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "includes\FTSstop_Ascii.stp"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "includes\FTSstop_Unicode.stp"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "includes\FTSstop_UTF8.stp"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "includes\KLinks.HxK"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\allmembers.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\blank.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\common.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\event.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\field.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\indices.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\individualmembers.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\member.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\memberoverload.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\memberscommon.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\namespace.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\namespacehierarchy.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\property.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\syntax.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\syntax-map.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\tags.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\type.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\typehierarchy.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\XLinks.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

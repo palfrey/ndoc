@@ -1,0 +1,218 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{8844E0D9-FCA0-419D-9168-BCD420B38378}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "NDoc.Documenter.LinearHtml"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                PreBuildEvent = 'if $(ConfigurationName)==Release copy "$(SolutionDir)ndoc.snk" "$(ProjectDir)obj\$(ConfigurationName)"'
+                PostBuildEvent = 'copy "$(TargetName).*" "$(SolutionDir)src\Gui\bin\$(ConfigurationName)\"&#xd;&#xa;copy "$(TargetName).*" "$(SolutionDir)src\Console\bin\$(ConfigurationName)\"&#xd;&#xa;'
+                RootNamespace = "NDoc.Documenter.LinearHtml"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "854523904"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE;NO_RESOURCES"
+                    DocumentationFile = "NDoc.Documenter.LinearHtml.xml"
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "true"
+                    NoStdLib = "false"
+                    NoWarn = "0618"
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "true"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "854523904"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = "NDoc.Documenter.LinearHtml.xml"
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = "0618"
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "true"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                />
+                <Reference
+                    Name = "Core"
+                    Project = "{DBA75D67-23C9-4A78-ABC2-CF8802FDB7CA}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                />
+                <Reference
+                    Name = "System.Drawing.Design"
+                    AssemblyName = "System.Drawing.Design"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                />
+                <Reference
+                    Name = "System.Design"
+                    AssemblyName = "System.Design"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "CommonAssemblyInfo.cs"
+                    Link = "..\..\CommonAssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "LinearHtml.build"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "LinearHtmlDocumenter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "LinearHtmlDocumenterConfig.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "LinearHtmlWorkspace.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "css\LinearHtml.css"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\allmembers.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\common.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\doc.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\event.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\field.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\filenames.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\htmlcontents.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\individualmembers.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\linearHtml.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\member.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\memberoverload.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\memberscommon.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\namespace.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\namespacehierarchy.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\property.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\syntax.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\tags.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\type.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "xslt\vb-syntax.xslt"
+                    BuildAction = "EmbeddedResource"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

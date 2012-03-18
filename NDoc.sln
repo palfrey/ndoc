@@ -1,0 +1,134 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gui", "src\Gui\Gui.csproj", "{905285AD-A830-4BEB-A243-22A26A8E9827}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8282F072-D966-4075-A8DA-8911E36F4980} = {8282F072-D966-4075-A8DA-8911E36F4980}
+		{5B088ED3-EEED-4DD4-AE4C-A7E9323B634C} = {5B088ED3-EEED-4DD4-AE4C-A7E9323B634C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{DBA75D67-23C9-4A78-ABC2-CF8802FDB7CA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Msdn", "src\Documenter\Msdn\Msdn.csproj", "{8282F072-D966-4075-A8DA-8911E36F4980}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml", "src\Documenter\Xml\Xml.csproj", "{C90E801B-30AF-45DA-A138-E6BCCB1E99A7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaDoc", "src\Documenter\JavaDoc\JavaDoc.csproj", "{17A4026E-1790-4965-A670-861AE002BEF0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "src\Test\Test.csproj", "{087FF069-C495-4CE7-B999-06C2B5D311B9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "src\Console\Console.csproj", "{D7D2286A-8378-4CC9-A260-7AC1EE65E24E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio", "src\VisualStudio\VisualStudio.csproj", "{ED78444A-4734-41F7-8688-4BA9994BEBF5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinearHtml", "src\Documenter\LinearHtml\LinearHtml.csproj", "{8844E0D9-FCA0-419D-9168-BCD420B38378}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latex", "src\Documenter\Latex\Latex.csproj", "{2929DFA6-FFCF-4110-B8B5-3005A087B58A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeHtmlHelp2", "src\Documenter\NativeHtmlHelp2\NativeHtmlHelp2.csproj", "{5B088ED3-EEED-4DD4-AE4C-A7E9323B634C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UsersGuide", "src\UsersGuide\UsersGuide.vcproj", "{D250CF6D-13ED-4B69-AE7C-345D7C686B49}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedUI", "src\ExtendedUI\ExtendedUI.csproj", "{0E14C115-C99D-49F7-A892-3AEF74320A61}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Msdn2", "src\Documenter\Msdn2\Msdn2.csproj", "{8282F072-D966-4075-A8DA-8911E36F4980}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{905285AD-A830-4BEB-A243-22A26A8E9827}.Debug.ActiveCfg = Debug|.NET
+		{905285AD-A830-4BEB-A243-22A26A8E9827}.Debug.Build.0 = Debug|.NET
+		{905285AD-A830-4BEB-A243-22A26A8E9827}.Release.ActiveCfg = Release|.NET
+		{905285AD-A830-4BEB-A243-22A26A8E9827}.Release.Build.0 = Release|.NET
+		{DBA75D67-23C9-4A78-ABC2-CF8802FDB7CA}.Debug.ActiveCfg = Debug|.NET
+		{DBA75D67-23C9-4A78-ABC2-CF8802FDB7CA}.Debug.Build.0 = Debug|.NET
+		{DBA75D67-23C9-4A78-ABC2-CF8802FDB7CA}.Release.ActiveCfg = Release|.NET
+		{DBA75D67-23C9-4A78-ABC2-CF8802FDB7CA}.Release.Build.0 = Release|.NET
+		{8282F072-D966-4075-A8DA-8911E36F4980}.Debug.ActiveCfg = Debug|.NET
+		{8282F072-D966-4075-A8DA-8911E36F4980}.Debug.Build.0 = Debug|.NET
+		{8282F072-D966-4075-A8DA-8911E36F4980}.Release.ActiveCfg = Release|.NET
+		{8282F072-D966-4075-A8DA-8911E36F4980}.Release.Build.0 = Release|.NET
+		{C90E801B-30AF-45DA-A138-E6BCCB1E99A7}.Debug.ActiveCfg = Debug|.NET
+		{C90E801B-30AF-45DA-A138-E6BCCB1E99A7}.Debug.Build.0 = Debug|.NET
+		{C90E801B-30AF-45DA-A138-E6BCCB1E99A7}.Release.ActiveCfg = Release|.NET
+		{C90E801B-30AF-45DA-A138-E6BCCB1E99A7}.Release.Build.0 = Release|.NET
+		{17A4026E-1790-4965-A670-861AE002BEF0}.Debug.ActiveCfg = Debug|.NET
+		{17A4026E-1790-4965-A670-861AE002BEF0}.Debug.Build.0 = Debug|.NET
+		{17A4026E-1790-4965-A670-861AE002BEF0}.Release.ActiveCfg = Release|.NET
+		{17A4026E-1790-4965-A670-861AE002BEF0}.Release.Build.0 = Release|.NET
+		{087FF069-C495-4CE7-B999-06C2B5D311B9}.Debug.ActiveCfg = Debug|.NET
+		{087FF069-C495-4CE7-B999-06C2B5D311B9}.Debug.Build.0 = Debug|.NET
+		{087FF069-C495-4CE7-B999-06C2B5D311B9}.Release.ActiveCfg = Release|.NET
+		{087FF069-C495-4CE7-B999-06C2B5D311B9}.Release.Build.0 = Release|.NET
+		{D7D2286A-8378-4CC9-A260-7AC1EE65E24E}.Debug.ActiveCfg = Debug|.NET
+		{D7D2286A-8378-4CC9-A260-7AC1EE65E24E}.Debug.Build.0 = Debug|.NET
+		{D7D2286A-8378-4CC9-A260-7AC1EE65E24E}.Release.ActiveCfg = Release|.NET
+		{D7D2286A-8378-4CC9-A260-7AC1EE65E24E}.Release.Build.0 = Release|.NET
+		{ED78444A-4734-41F7-8688-4BA9994BEBF5}.Debug.ActiveCfg = Debug|.NET
+		{ED78444A-4734-41F7-8688-4BA9994BEBF5}.Debug.Build.0 = Debug|.NET
+		{ED78444A-4734-41F7-8688-4BA9994BEBF5}.Release.ActiveCfg = Release|.NET
+		{ED78444A-4734-41F7-8688-4BA9994BEBF5}.Release.Build.0 = Release|.NET
+		{8844E0D9-FCA0-419D-9168-BCD420B38378}.Debug.ActiveCfg = Debug|.NET
+		{8844E0D9-FCA0-419D-9168-BCD420B38378}.Debug.Build.0 = Debug|.NET
+		{8844E0D9-FCA0-419D-9168-BCD420B38378}.Release.ActiveCfg = Release|.NET
+		{8844E0D9-FCA0-419D-9168-BCD420B38378}.Release.Build.0 = Release|.NET
+		{2929DFA6-FFCF-4110-B8B5-3005A087B58A}.Debug.ActiveCfg = Debug|.NET
+		{2929DFA6-FFCF-4110-B8B5-3005A087B58A}.Debug.Build.0 = Debug|.NET
+		{2929DFA6-FFCF-4110-B8B5-3005A087B58A}.Release.ActiveCfg = Release|.NET
+		{2929DFA6-FFCF-4110-B8B5-3005A087B58A}.Release.Build.0 = Release|.NET
+		{5B088ED3-EEED-4DD4-AE4C-A7E9323B634C}.Debug.ActiveCfg = Debug|.NET
+		{5B088ED3-EEED-4DD4-AE4C-A7E9323B634C}.Debug.Build.0 = Debug|.NET
+		{5B088ED3-EEED-4DD4-AE4C-A7E9323B634C}.Release.ActiveCfg = Release|.NET
+		{5B088ED3-EEED-4DD4-AE4C-A7E9323B634C}.Release.Build.0 = Release|.NET
+		{D250CF6D-13ED-4B69-AE7C-345D7C686B49}.Debug.ActiveCfg = Debug|Win32
+		{D250CF6D-13ED-4B69-AE7C-345D7C686B49}.Release.ActiveCfg = Release|Win32
+		{D250CF6D-13ED-4B69-AE7C-345D7C686B49}.Release.Build.0 = Release|Win32
+		{0E14C115-C99D-49F7-A892-3AEF74320A61}.Debug.ActiveCfg = Debug|.NET
+		{0E14C115-C99D-49F7-A892-3AEF74320A61}.Debug.Build.0 = Debug|.NET
+		{0E14C115-C99D-49F7-A892-3AEF74320A61}.Release.ActiveCfg = Release|.NET
+		{0E14C115-C99D-49F7-A892-3AEF74320A61}.Release.Build.0 = Release|.NET
+		{8282F072-D966-4075-A8DA-8911E36F4980}.Debug.ActiveCfg = Debug|.NET
+		{8282F072-D966-4075-A8DA-8911E36F4980}.Debug.Build.0 = Debug|.NET
+		{8282F072-D966-4075-A8DA-8911E36F4980}.Release.ActiveCfg = Release|.NET
+		{8282F072-D966-4075-A8DA-8911E36F4980}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		src\CommonAssemblyInfo.cs = src\CommonAssemblyInfo.cs
+		COPYING.txt = COPYING.txt
+		NDoc.build = NDoc.build
+		NDoc.build.include = NDoc.build.include
+		NDoc.build.package = NDoc.build.package
+		README.txt = README.txt
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

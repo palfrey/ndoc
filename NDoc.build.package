@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<project name="NDoc-package" default="package">
+    <target name="package" description="Build and Package distribution" depends="check-project-version">
+        <!-- 
+            set name of package zip file (do not use release type as suffix 
+            for an actual final release 
+        -->
+        <if test="${project.release.type=='release'}">
+            <property name="current.package.zipfile" value="${nant.project.name}-devel-v${project.version}.${project.patchversion}.zip" />
+        </if>
+        <if test="${not(project.release.type=='release')}">
+            <property name="current.package.zipfile" value="${nant.project.name}-devel-v${project.version}-${project.release.type}.zip" />
+        </if>
+        <!-- set flag to indicate that this is a package build -->
+        <property name="project.build.package" value="true" readonly="false" />
+        <call target="clean-build-dir" />
+        <!-- set build configuration to release -->
+        <call target="release" />
+        <!-- compile current build configuration for all supported frameworks -->
+        <call target="compile-build" />
+        <!-- build SDK doc
+        <call target="sdkdoc" /> -->
+        <!-- build user guide -->
+        <call target="build-userguide" />
+        <!-- build setup -->
+        <call target="build-setup" />
+        <!-- create distribution zip file -->
+        <call target="zip" />
+    </target>
+    <!--
+
+    -->
+    <target name="zip" depends="check-build-dir, check-current-package-zipfile">
+        <!-- create CommonAssemblyInfo.cs file to inclusing in distribution package -->
+        <call target="create-common-assemblyinfo-for-packaging" />
+        <!-- delete the specified zipfile if it already exists -->
+        <delete file="${current.package.zipfile}" if="${file::exists(current.package.zipfile)}" />
+        <zip zipfile="${current.package.zipfile}" ziplevel="9">
+            <fileset>
+                <include name="COPYING.txt" />
+                <include name="NDoc.build*" />
+                <include name="README.txt" />
+                <include name="NDoc.sln" />
+                <include name="NDoc.snk" />
+                <include name="bin/**" />
+                <include name="doc/**" />
+                <include name="examples/*" />
+                <include name="examples/Linked/*" />
+                <exclude name="examples/Linked/Linked.chw" />
+                <exclude name="examples/Linked/Linked.log" />
+                <exclude name="examples/Linked/Linked.chm" />
+                <include name="src/**/*" />
+                <exclude name="doc/sdk/NDoc-SDK.*" /> <!-- remove HTML Help file, only include HTML files -->
+                <exclude name="src/Addins/**" />
+                <exclude name="src/Console/NDocConsole.xml" />
+                <exclude name="src/Core/NDoc.Core.xml" />
+                <exclude name="src/Documenter/HtmlHelp2/NDoc.Documenter.HtmlHelp2.xml" />
+                <exclude name="src/Documenter/JavaDoc/NDoc.Documenter.JavaDoc.xml" />
+                <exclude name="src/Documenter/Latex/NDoc.Documenter.Latex.xml" />
+                <exclude name="src/Documenter/LinearHtml/NDoc.Documenter.LinearHtml.xml" />
+                <exclude name="src/Documenter/Msdn/NDoc.Documenter.Msdn.xml" />
+                <exclude name="src/Documenter/NativeHtmlHelp2/NDoc.Documenter.NativeHtmlHelp2.xml" />
+                <exclude name="src/Documenter/Xml/NDoc.Documenter.Xml.xml" />
+                <exclude name="src/Gui/NDocGui.xml" />
+                <exclude name="src/NDocGen/**" />
+                <exclude name="src/Setup/Debug/**" />
+                <exclude name="src/Setup/Release/**" />
+                <exclude name="src/Test/NDoc.Test.xml" />
+                <exclude name="src/UsersGuide/NDocUsersGuide.chm" />
+                <exclude name="src/UsersGuide/_errorlog.txt" />
+                <exclude name="src/UsersGuide/Debug/**" />
+                <exclude name="src/UsersGuide/Release/**" />
+                <exclude name="src/VisualStudio/NDoc.VisualStudio.xm" />
+                <exclude name="src/**/bin/**" />
+                <exclude name="src/**/obj/**" />
+                <exclude name="**/gc.log" /> <!-- file created by mono compiler -->
+                <exclude name="**/*.user" />
+                <exclude name="**/*.suo" />
+                <exclude name="**/.#*" /> <!-- CVS backup files -->
+            </fileset>
+        </zip>
+    </target>
+    <!--
+
+    -->
+    <target name="build-userguide">
+        <exec program="devenv.com">
+            <arg file="src/UsersGuide/UsersGuide.vcproj" />
+            <arg value="/rebuild" />
+            <arg value="release" />
+        </exec>
+        <echo message="NDoc ${project.version} user guide created at '${path::get-full-path('src/UsersGuide/NDocUsersGuide.chm')}'."
+            level="Info" />
+    </target>
+    <!--
+
+    -->
+    <target name="build-setup">
+        <exec program="devenv.com">
+            <arg file="src/Setup/Setup.vdproj" />
+            <arg value="/rebuild" />
+            <arg value="release" />
+        </exec>
+        <!-- 
+            copy created msi file to actual filename that will be uploaded
+            to sf.net
+        -->
+        <if test="${project.release.type=='release'}">
+            <move file="src/Setup/Release/NDoc.msi" tofile="NDoc-v${project.version}.${project.patchversion}.msi" overwrite="true" />
+        </if>
+        <if test="${not(project.release.type=='release')}">
+            <move file="src/Setup/Release/NDoc.msi" tofile="NDoc-v${project.version}-${project.release.type}.msi" overwrite="true" />
+        </if>
+    </target>
+    <!--
+        Create a CommonAssemblyInfo.cs that can be included in the developer 
+        distribution package.
+    -->
+    <target name="create-common-assemblyinfo-for-packaging">
+        <!-- ensure src/CommonAssemblyInfo.cs is writable if it already exists -->
+        <attrib file="src/CommonAssemblyInfo.cs" readonly="false" if="${file::exists('src/CommonAssemblyInfo.cs')}" />
+        <!-- generate the source file holding the common assembly-level attributes -->
+        <asminfo output="src/CommonAssemblyInfo.cs" language="CSharp">
+            <imports>
+                <import name="System" />
+                <import name="System.Reflection" />
+                <import name="System.Runtime.InteropServices" />
+            </imports>
+            <attributes>
+                <attribute type="ComVisibleAttribute" value="false" />
+                <attribute type="AssemblyConfigurationAttribute" value="${project.release.type}" />
+                <attribute type="AssemblyCompanyAttribute" value="http://ndoc.sourceforge.net" />
+                <attribute type="AssemblyProductAttribute" value="NDoc" />
+                <attribute type="AssemblyCopyrightAttribute" value="" />
+                <attribute type="AssemblyTrademarkAttribute" value="" />
+                <attribute type="AssemblyCultureAttribute" value="" />
+                <attribute type="AssemblyVersionAttribute" value="${project.version}.${build.number}.0" />
+                <attribute type="AssemblyInformationalVersionAttribute" value="${project.version}.${project.patchversion}" />
+            </attributes>
+        </asminfo>
+    </target>
+</project>
