@@ -149,6 +149,7 @@
         <nant buildfile="src/Console/Console.build" target="compile" inheritall="true" />
         <nant buildfile="src/VisualStudio/VisualStudio.build" target="compile" inheritall="true" />
         <nant buildfile="src/Gui/Gui.build" target="compile" inheritall="true" />
+        <nant buildfile="src/Documenter/NAnt/NAnt.build" target="compile" inheritall="true" />
         <nant buildfile="src/Documenter/Msdn/Msdn.build" target="compile" inheritall="true" />
         <nant buildfile="src/Documenter/Msdn2/Msdn2.build" target="compile" inheritall="true" />
         <nant buildfile="src/Documenter/JavaDoc/JavaDoc.build" target="compile" inheritall="true" />
