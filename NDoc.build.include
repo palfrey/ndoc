@@ -228,6 +228,16 @@
 		<property name="current.sdkdoc.dir" value="${nant.project.basedir}/doc/sdk/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
 		<property name="current.sdkdoc.debug" value="${sdkdoc.debug}" dynamic="true" readonly="false" />
 	</target>
+
+	<target name="set-mono-4.0-framework-configuration" depends="check-build-dir, check-current-build-config, check-build-debug, check-build-defines, check-build-optimize">
+		<property name="nant.settings.currentframework" value="mono-4.0" />
+		<property name="current.build.debug" value="${build.debug}" dynamic="true" readonly="false" />
+		<property name="current.build.defines" value="${build.defines},MONO,MONO_4_0" dynamic="true" readonly="false" />
+		<property name="current.build.optimize" value="${build.optimize}" dynamic="true" readonly="false" />
+		<property name="current.bin.dir" value="${build.dir}/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.dir" value="${nant.project.basedir}/doc/sdk/${framework::get-family(framework::get-target-framework())}/${framework::get-version(framework::get-target-framework())}" dynamic="true" />
+		<property name="current.sdkdoc.debug" value="${sdkdoc.debug}" dynamic="true" readonly="false" />
+	</target>
 	<!--
 
 	-->
