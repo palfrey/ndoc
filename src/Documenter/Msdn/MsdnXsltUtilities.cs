@@ -214,7 +214,7 @@ namespace NDoc.Documenter.Msdn
 		}
 
 		/// <summary>
-		/// Exposes <see cref="String.Replace(string, string)"/> to XSLT
+		/// Exposes <see cref="M:System.String.Replace(string, string)"/> to XSLT
 		/// </summary>
 		/// <param name="str">The string to search</param>
 		/// <param name="oldValue">The string to search for</param>
