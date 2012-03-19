@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
 <project name="NDoc.Documenter.LinearHtml" default="compile">
 	<target name="compile">
-		<csc target="library" warnaserror="true" output="${current.bin.dir}/${nant.project.name}.dll" debug="${current.build.debug}" optimize="${current.build.optimize}" unsafe="false" checked="false" define="${current.build.defines}" doc="${current.bin.dir}/${nant.project.name}.xml">
+		<csc target="library" output="${current.bin.dir}/${nant.project.name}.dll" debug="${current.build.debug}" optimize="${current.build.optimize}" unsafe="false" checked="false" define="${current.build.defines}" doc="${current.bin.dir}/${nant.project.name}.xml">
 			<nowarn>
 				<warning number="0618" unless="${framework::get-target-framework() == 'net-2.0'}" />
+				<!-- do not treat usage of AssemblyKeyFile attribute as error on .NET 2.0 -->
+				<warning number="1699" if="${framework::get-target-framework() == 'net-2.0'}" />
 			</nowarn>
 			<warnaserror>
 				<!-- do not treat obsolete warnings as error on .NET 2.0 -->
 				<exclude number="0618" if="${framework::get-target-framework() == 'net-2.0'}" />
-				<!-- do not treat usage of AssemblyKeyFile attribute as error on .NET 2.0 -->
-				<exclude number="1699" if="${framework::get-target-framework() == 'net-2.0'}" />
 			</warnaserror>
 			<sources>
 				<include name="**/*.cs" />
