@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<project name="NDoc.NAnt.Task" default="compile">
+	<target name="compile">
+		<csc target="library" output="${current.bin.dir}/${nant.project.name}.dll" debug="${current.build.debug}" optimize="${current.build.optimize}" unsafe="false" checked="false" define="${current.build.defines}" doc="${current.bin.dir}/${nant.project.name}.xml">
+			<sources>
+				<include name="**/*.cs" />
+				<include name="../CommonAssemblyInfo.cs" />
+			</sources>
+			<references>
+				<include name="System.dll" />
+				<include name="System.Xml.dll" />
+				<include name="System.Drawing.Design.dll" />
+				<include name="System.Design.dll" />
+				<include name="System.Drawing.dll" />
+				<include name="System.Data.dll" />
+				<include name="System.Web.dll" />
+				<include name="/usr/lib/NAnt/NAnt.Core.dll" />
+				<include name="/usr/lib/NAnt/NAnt.DotNetTasks.dll" />
+				<include name="${current.bin.dir}/NDoc.Core.dll" />
+			</references>
+			<resources prefix="${nant.project.name}" dynamicprefix="true">
+				<include name="**/*.resx" />
+			</resources>
+		</csc>
+	</target>
+</project>

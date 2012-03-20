@@ -146,6 +146,7 @@
         <!-- build all projects -->
         <nant buildfile="src/ExtendedUI/ExtendedUI.build" target="compile" inheritall="true" />
         <nant buildfile="src/Core/Core.build" target="compile" inheritall="true" />
+        <nant buildfile="src/NAnt/NAnt.build" target="compile" inheritall="true" />
         <nant buildfile="src/Console/Console.build" target="compile" inheritall="true" />
         <nant buildfile="src/VisualStudio/VisualStudio.build" target="compile" inheritall="true" />
         <nant buildfile="src/Gui/Gui.build" target="compile" inheritall="true" />
